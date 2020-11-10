@@ -1,0 +1,106 @@
+/* 
+======================
+UTILITIES
+======================
+*/
+
+// colors
+// -------------------------
+$color-primary-light: hsl(236, 72%, 79%);
+$color-primary-dark: hsl(237, 63%, 64%);
+
+
+$color-neutral-very-light-grayish: hsl(240, 78%, 98%);
+$color-neutral-light-grayish: hsl(234, 14%, 74%);
+$color-neutral-grayish: hsl(233, 13%, 49%);
+$color-neutral-dark-grayish: hsl(232, 13%, 33%);
+
+
+// fonts
+// -------------------------
+
+$font-size: 15px;
+$font-family: Montserrat, sans-serif;
+
+// breakpoints
+// -------------------------
+$bp-sm: 375px; // mobile
+$bp-lg: 1440px; // desktop
+
+$breakpoints: (
+	"sm": $bp-sm,
+	"lg": $bp-lg,
+) !default;
+
+/* EJEMPLO respond-to
+.foo {
+  color: red;
+  @include respond-to('small') {
+    color: blue;
+  }
+}
+*/
+
+@mixin respond-to($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media (min-width: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	} @else {
+		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+	}
+}
+
+
+
+/* 
+======================
+BASE
+======================
+*/
+
+
+// reset
+// -------------------------
+
+* {
+	box-sizing: border-box;
+}
+
+// body
+// -------------------------
+body {
+	background-color: $color-primary-light;
+}
+
+/* 
+======================
+LAYOUT
+======================
+*/
+
+
+
+
+// footer
+// -------------------------
+footer {
+	margin-top: 50px;
+}
+
+/* 
+======================
+COMPONENTS
+======================
+*/
+
+
+
+
+// helpers
+// -------------------------
+
+
+// states
+// -------------------------
