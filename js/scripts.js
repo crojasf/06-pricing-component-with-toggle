@@ -18,3 +18,5 @@ function logArrayElements(element, index, array) {
 	element.children[1].classList.toggle('hidden');
 	element.children[2].classList.toggle('hidden');
 }
+
+

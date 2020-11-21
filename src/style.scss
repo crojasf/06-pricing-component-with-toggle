@@ -70,7 +70,21 @@ body {
 	font-family: $font-family;
 	color: $color-neutral;
 	background-color: $color-neutral-very-light;
+
+	background-image: url(/images/bg-top.svg);
+	background-repeat: no-repeat;
+	background-position: right top;
+
 	margin: 0;
+
+	@include respond-to("lg") {
+	}
+
+	@include respond-to("lg") {
+		background-image: url(/images/bg-top.svg), url(/images/bg-bottom.svg);
+		background-position: right top, left bottom;
+		background-repeat: no-repeat, no-repeat;
+	}
 }
 
 /* 
@@ -85,10 +99,11 @@ LAYOUT
 .pricing {
 	width: $bp-sm;
 	margin: 0 auto;
-	background-image: url(/images/bg-top.svg);
-	background-repeat: no-repeat;
-	background-position: 200px -30px;
 	padding: 0 24px;
+
+	@include respond-to("lg") {
+		width: $bp-lg;
+	}
 }
 
 // header
@@ -98,6 +113,12 @@ LAYOUT
 	text-align: center;
 	padding: 3.5rem 0;
 
+	@include respond-to("lg") {
+		width: $bp-sm;
+		margin: 0 auto;
+		padding: 3.5rem 24px;
+	}
+
 	&__nav {
 		height: 4rem;
 		padding: 0 2rem;
@@ -105,6 +126,16 @@ LAYOUT
 		justify-content: space-evenly;
 		align-items: center;
 		color: $color-neutral-light;
+	}
+}
+
+// cards
+// -------------------------
+.cards {
+	@include respond-to("lg") {
+		display: flex;
+		justify-content: center;
+		width: $bp-lg;
 	}
 }
 
@@ -185,10 +216,27 @@ COMPONENTS
 .card {
 	$c: &; // Set the parent as a variable
 	border-radius: 10px;
-	padding: 20px 29px 31px;
+	padding: 20px 29px 32px;
 	margin-bottom: 32px;
 	text-align: center;
 	background-color: white;
+
+	@include respond-to("lg") {
+		width: 350px;
+
+		&:nth-child(2n + 1) {
+			margin-top: 24px;
+			margin-bottom: 56px;
+		}
+		&:first-child {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		&:last-child {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
 
 	&__price {
 		display: flex;
@@ -207,26 +255,36 @@ COMPONENTS
 		border-top: 1px solid $color-neutral-light;
 		margin: 1.5em 0;
 	}
-	&__specs > &__spec {
+	&__spec {
 		border-bottom: 1px solid $color-neutral-light;
 		padding: 1em 0;
 	}
 
-	&--alternative {
+	&:nth-child(2n) {
 		background: linear-gradient(135deg, $color-primary-light, $color-primary-dark);
 		color: white;
+
+		@include respond-to("lg") {
+			padding: 44px 29px 56px;
+		}
 
 		#{$c}__price {
 			color: white;
 		}
 		#{$c}__specs,
-		#{$c}__specs > #{$c}__spec {
+		#{$c}__spec {
 			border-color: $color-primary-light;
 		}
-
 		.btn {
 			background: white;
 			color: $color-primary-dark;
+
+			&:hover,
+			&:active {
+				background: none;
+				border: 1px solid white;
+				color: white;
+			}
 		}
 	}
 } // end - card
@@ -237,7 +295,7 @@ COMPONENTS
 .btn {
 	width: 100%;
 	padding: 1em 0;
-	border: none;
+	border: 1px solid white;
 	border-radius: 0.5em;
 	background: linear-gradient(90deg, $color-primary-light, $color-primary-dark);
 	font-family: $font-family;
@@ -245,6 +303,13 @@ COMPONENTS
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	color: white;
+
+	&:hover,
+	&:active {
+		background: none;
+		border: 1px solid $color-neutral-dark;
+		color: $color-primary-dark; 
+	}
 }
 
 // helpers
