@@ -18,14 +18,14 @@ Para preparar el entorno se debe instalar Node.js en el equipo e instalar *gulp*
 ## Pasos a realizar en el proyecto
 
 + Iniciar proyecto guardando los ficheros y subiéndolos a Github.
-+ Crear la estructura HTML del componente a crear.
++ Crear la estructura HTML y CSS del componente a crear.
 + Crear estilos para Mobile First y retocar algunas etiquetas HTML.
 + Aplicar MediaQuerys para estilos para Desktop y algunos ajustes finales.
 + Agregar funcionalidades JavaScript
 
 
 ## Demo
-El resultado del proyecto puede verse [aquí](https://crojasf.github.io/05-intro-component-with-signup-form/).
+El resultado del proyecto puede verse [aquí](https://crojasf.github.io/06-pricing-component-with-toggle/).
 
 ![desktop-final](/design/desktop-final.png)
 
@@ -73,7 +73,7 @@ $ git init
 $ git add .
 $ git commit -m "Subir ficheros iniciales del proyecto"
 $ git branch -M main
-$ git remote add origin https://github.com/crojasf/05-intro-component-with-signup-form
+$ git remote add origin https://github.com/crojasf/06-pricing-component-with-toggle.git
 $ git push -u origin main
 ```
 
